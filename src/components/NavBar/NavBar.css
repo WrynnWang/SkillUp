@@ -1,0 +1,10 @@
+.NavBar {
+  width:100%;
+  color: #555555;
+  display: flex;
+  padding: 10px, 10px;
+}
+
+.NavBarItem{
+  padding: 20px;
+}
