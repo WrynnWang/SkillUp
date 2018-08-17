@@ -2,9 +2,9 @@ import React, { Component, Frangment } from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Home from './containers/Home/Home';
 import NavBar from './components/NavBar/NavBar';
-import Membership from './containers/Membership/Membership';
-import Library from './containers/Library/Library';
-import ContactUs from './containers/ContactUs/ContactUs';
+import Membership from './components/Pages/Membership/Membership';
+import Library from './components/Pages/Library/Library';
+import ContactUs from './components/Pages/ContactUs/ContactUs';
 import './App.css';
 
 class App extends Component {
