@@ -1,4 +1,4 @@
-export const aboutus = [
+export const ABOUTUS = [
   {
     value: 'SkillUp',
     link: '/skillup'
@@ -15,9 +15,9 @@ export const aboutus = [
     value: 'Australia China Business Council',
     link: '/acbc'
   },
-]
+];
 
-export const program = [
+export const PROGRAM = [
   {
     value: 'Internship',
     link: '/internship'

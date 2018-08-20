@@ -1,13 +1,11 @@
 import React from 'react';
 import skillupLogo from '../../assets/Logo/skillupLogo.png';
-import NavBar from '../NavBar/NavBar';
+import NavBar from './NavBar/NavBar';
 import classes from './Header.css';
 
 const header = (props) => (
   <header className={classes.Header}>
-    <div>
-      <img src={skillupLogo} alt="skillup" />
-    </div>
+    <img src={skillupLogo} alt="skillup" />
     <nav>
       <NavBar />
     </nav>
