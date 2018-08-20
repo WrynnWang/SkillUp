@@ -1,0 +1,47 @@
+.Footer {
+  background-color: #333;
+  color: #f2f2f2;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+}
+
+.Section {
+  padding: 10px;
+  text-align: center;
+  width:30%;
+  box-sizing: border-box;
+  border: 1px solid green;
+  margin: 10px auto;
+}
+
+.Section ul{
+  list-style-type:none;
+  box-sizing: border-box;
+  border: solid 1px green;
+  line-height: 100%;
+  text-align: left;
+}
+
+.Section a{
+  color: #c2c2c2;
+  font-size: 10px;
+  letter-spacing: 0;
+}
+
+.WechatQR {
+  height: 100px;
+  width: 100px;
+}
+
+.Infobox {
+  margin: 10px auto;
+  padding: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 80%;
+  box-sizing: border-box;
+  border: 1px solid green;
+}

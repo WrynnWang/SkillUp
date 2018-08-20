@@ -2,7 +2,10 @@ import React from 'react';
 
 const services = (props) => (
   <div>
-    This is services.
+
+    <p>Services</p>
+
+
   </div>
 )
 
