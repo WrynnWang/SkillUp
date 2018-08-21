@@ -14,6 +14,7 @@ import SkillUp from './components/Pages/AboutUs/SkillUp/SkillUp';
 import Vsg from './components/Pages/AboutUs/VSG/VSG';
 import Acbc from './components/Pages/AboutUs/ACBC/ACBC';
 import Geg from './components/Pages/AboutUs/GEG/GEG';
+import Auth from './containers/Auth/Auth';
 
 import './App.css';
 
@@ -36,6 +37,7 @@ class App extends Component {
             <Route exact path="/vsg" component={Vsg} />
             <Route exact path="/geg" component={Geg} />
             <Route exact path="/acbc" component={Acbc} />
+            <Route exact path="/login" component={Auth}/>
           </Switch>
         </div>
       </BrowserRouter>
