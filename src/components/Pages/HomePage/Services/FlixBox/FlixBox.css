@@ -1,0 +1,45 @@
+.FlipBoxContainer {
+  position: relative;
+  margin: 0px auto;
+  width: 25%;
+  height: 100%;
+  z-index: 1;
+}
+
+.FlipBox {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 1.0s linear;
+}
+
+.FlipFront {
+  position:absolute;
+	width:100%;
+	height:100%;
+  transform: rotateY(0deg);
+	backface-visibility: hidden;
+  webkit-backface-visibility: hidden;
+}
+
+.FlipFront img{
+  width: 100%;
+  height: 100%;
+}
+
+.FlipBack {
+  display: block;
+  transform: rotateY(180deg);
+  box-sizing: border-box;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  background-color: #aaa;
+  backface-visibility: hidden;
+  webkit-backface-visibility: hidden;
+}
+
+.FlipBoxContainer:hover .FlipBox{
+  transform: rotateY(180deg);
+  box-shadow: -5px 5px 5px #aaa;
+}

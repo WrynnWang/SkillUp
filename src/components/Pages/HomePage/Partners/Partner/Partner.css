@@ -1,0 +1,13 @@
+.Partner {
+  box-sizing: border-box;
+  border: 1px solid red;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.Partner img{
+  width: 50%;
+  height: 100%;
+}

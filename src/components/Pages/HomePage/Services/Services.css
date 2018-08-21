@@ -1,0 +1,46 @@
+.Container {
+  margin: 0px;
+  box-sizing: border-box;
+  border: 1px solid red;
+  text-align: center;
+}
+
+.Background{
+  background-color: #01A6DB;
+}
+
+.Services {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  width: 80%;
+  height: 60%;
+  box-sizing: border-box;
+  border: 1px solid red;
+}
+
+.Services h1{
+    font-size: 52px;
+    color: #ffffff;
+    line-height: 1.2em;
+    text-align: center;
+    font-family: Raleway;
+    font-weight: 900;
+    font-style: normal
+}
+
+.Services h5{
+  font-size: 16px;
+  color: #ffffff;
+  line-height: 14px;
+  text-align: center;
+  font-family: Raleway;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.FlipBox {
+  margin:0;
+  padding: 0;
+  display: flex;
+}
