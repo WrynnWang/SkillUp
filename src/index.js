@@ -7,13 +7,23 @@ import thunk from 'redux-thunk';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import reducer from './store/reducer';
+import authReducer from './store/reducer/auth';
+import profileReducer from './store/reducer/profile';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(reducer, composeEnhancers(
+const rootReducer = combineReducers({
+    auth: authReducer,
+    profile: profileReducer
+});
+
+const store = createStore(rootReducer, composeEnhancers(
     applyMiddleware(thunk)
 ));
+
+store.subscribe( () => {
+    console.log('[Subsciption]', store.getState());
+});
 
 const app = (
     <Provider store={store}>
