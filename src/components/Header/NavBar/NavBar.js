@@ -17,11 +17,10 @@ const navBar = (props) => {
 
     return(
       <ul className={classes.NavBar}>
-          <NavItem> link="/">Home</NavItem>
-          <Dropdown list={dropdownItems.PROGRAM} title="Program"></Dropdown>
+          <NavItem link="/">Home</NavItem>
           <NavItem link="/membership">Membership</NavItem>
           <NavItem link="/library">Library</NavItem>
-          <Dropdown list={dropdownItems.ABOUTUS} title="About us"></Dropdown>
+          {/*<Dropdown list={dropdownItems.ABOUTUS} title="About us"></Dropdown>*/}
           <NavItem link="/contact-us">Contact Us</NavItem>
           {props.isAuthenticated ? <NavItem link="/profile">Profile</NavItem>: null}
           {!props.isAuthenticated ? <NavItem link="/login">Login</NavItem>: <NavItem link="/logout">Log Out</NavItem> }
