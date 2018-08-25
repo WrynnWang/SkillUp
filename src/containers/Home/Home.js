@@ -10,12 +10,12 @@ import classes from './Home.css';
 const home = (props) => (
   <div className={classes.Home}>
     <div className={classes.Body}>
+      <Banners />
       <Services />
       <Partners />
-      <Library />
       <Mentors />
       <Plans />
-
+      <Library />
     </div>
     <footer>
       <Footer />

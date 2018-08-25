@@ -1,0 +1,37 @@
+.PageTemplate {
+    height: 100%;
+    margin-top: 60px;
+}
+
+.Body {
+    position: relative;
+    margin: 0;
+    padding-bottom: 20rem;
+    min-height: 100%;
+    box-sizing: border-box;
+    border: 1px solid red;
+}
+
+.TopBackgournd {
+    background-image: url('../../../assets//test.jpg');
+    width:  100%;
+    height: 200px;
+    background-size: cover;
+    text-align: center;
+    position: relative;
+    box-sizing: border-box;
+    border: 1px solid red;
+}
+
+.Text{
+    position: relative;
+    margin: auto;
+    margin-top: 40px;;
+    width: 80%;
+    height: 60%;
+    font-size: 20px;
+    color: #EEEEEE;
+    box-sizing: border-box;
+    border: 1px solid red;
+    padding: 30px;
+}

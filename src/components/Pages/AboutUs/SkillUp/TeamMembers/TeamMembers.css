@@ -1,0 +1,11 @@
+.TeamMembers{
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    position:  relative;
+    margin: auto;   
+    width: 80%;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid green;
+}
