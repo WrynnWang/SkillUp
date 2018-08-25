@@ -1,13 +1,32 @@
-import React from 'react';
+import React, {Component} from 'react';
 import classes from './Banners.css';
-const banners = (props) => (
-  <div className={classes.Banners}>
-    <ul>
-      <li><span>Image 01</span><div><h3>This is Amos</h3></div></li>
-      <li><span>Image 02</span><div><h3>This is Pearl</h3></div></li>
-      <li><span>Image 03</span><div><h3>This is Tony</h3></div></li>
-    </ul>
-  </div>
-)
+import Banner from './Banner/Banner';
+import Image1 from '../../../../assets/Banner/image1.jpg';
+import Image2 from '../../../../assets/Banner/image2.jpg';
+import Image3 from '../../../../assets/Banner/image3.jpg';
+class Banners extends Component {
+  state = {
+    image: ['image1','image2','image3'],
+    currentIndex: '0',
 
-export default banners;
+  }
+  render() {
+
+    return (
+      <div>
+        <div className={classes.Banners}>
+          <Banner img={Image1}/>
+          <Banner img={Image2}/>
+          <Banner img={Image3}/>
+        </div>
+        <div className={classes.DotContainer}>
+          <span className={classes.Dot}></span>
+          <span className={classes.Dot}></span>
+          <span className={classes.Dot}></span>
+        </div>
+      </div>
+    )
+  }
+}
+
+export default Banners;

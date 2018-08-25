@@ -1,0 +1,10 @@
+.MainPost {
+    width: 30%;
+    margin: 10px; 
+    box-sizing: border-box;
+    border: 1px solid red;
+}
+
+.MainPost img{
+    width: 100%;
+}

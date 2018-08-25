@@ -6,6 +6,8 @@
   width: 100%;
   height: 60px;
   position:fixed;
+  overflow: visible;
+  z-index: 100;
 }
 
 .Header img{

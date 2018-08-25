@@ -1,0 +1,25 @@
+.Container {
+    margin-top: 20px;
+    box-sizing: border-box;
+    border: 1px solid red;
+    text-align: center;
+}
+
+.Container h5{
+    font-size: 14px;
+    color: #01a6db;
+    line-height: 14px;
+    text-align: center;
+    font-family: Raleway;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+.Container h1{
+    font-size: 52px;
+    line-height: 1.2em;
+    text-align: center;
+    font-family: Raleway;
+    font-weight: 900;
+    font-style: normal;
+}

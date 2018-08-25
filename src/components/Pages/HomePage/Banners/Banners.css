@@ -1,113 +1,23 @@
-.Banners
-.Banners::after {
-    width: 100%;
-    height: auto;
-    margin-top: 10px;
-    padding: 0;
-    left: 0px;
+.Banners {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
 }
 
-.Banners::after {
-  content: '';
-}
-
-.Banners li span {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  color: transparent;
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: none;
-  opacity: 0;
-  z-index: 0;
-  -webkit-backface-visibility: hidden;
-  -webkit-animation: imageAnimation 18s infinite ;
-  animation: imageAnimation 18s infinite ;
-}
-
-.Banners li div{
-  z-index: 1000;
-  position: absolute;
-  bottom: 30px;
-  left: 0px;
-  width: 100%;
+.DotContainer{
   text-align: center;
-  opacity: 0;
-  color: #fff;
-  -webkit-animation: titleAnimation 18s linear infinite 0s;
-  animation: titleAnimation 18s linear infinite 0s;
 }
 
-.Banners li:nth-child(1) span {
-    background-image: url('../../../../assets/Banner/amos.jpg')
-}
-.Banners li:nth-child(2) span {
-    background-image: url('../../../../assets/Banner/pearl.jpg');
-    -webkit-animation-delay: 6s;
-    animation-delay: 6s;
-}
-.Banners li:nth-child(3) span {
-    background-image: url('../../../../assets/Banner/tony.jpg');
-    -webkit-animation-delay: 12s;
-    animation-delay: 12s;
+.Dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
 }
 
-.Banners li:nth-child(2) div {
-    -webkit-animation-delay: 6s;
-    animation-delay: 6s;
-}
-.Banners li:nth-child(3) div {
-    -webkit-animation-delay: 12s;
-    animation-delay: 12s;
-}
-
-/* Animation for the slideshow images */
-@-webkit-keyframes imageAnimation {
-    0% { opacity: 0;
-    -webkit-animation-timing-function: ease-in; }
-    8% { opacity: 1;
-         -webkit-animation-timing-function: ease-out; }
-    17% { opacity: 1 }
-    25% { opacity: 0 }
-    100% { opacity: 0 }
-}
-
-@keyframes imageAnimation {
-    0% { opacity: 0;
-    animation-timing-function: ease-in; }
-    8% { opacity: 1;
-         animation-timing-function: ease-out; }
-    17% { opacity: 1 }
-    25% { opacity: 1 }
-    100% { opacity: 0 }
-}
-/* Animation for the title */
-@-webkit-keyframes titleAnimation {
-    0% { opacity: 0 }
-    8% { opacity: 1 }
-    17% { opacity: 1 }
-    19% { opacity: 0 }
-    100% { opacity: 0 }
-}
-
-@keyframes titleAnimation {
-    0% { opacity: 0 }
-    8% { opacity: 1 }
-    17% { opacity: 1 }
-    19% { opacity: 0 }
-    100% { opacity: 0 }
-}
-/* Show at least something when animations not supported */
-.no-cssanimations .Banners li span{
-	opacity: 1;
-}
-
-@media screen and (max-width: 1140px) {
-    .Banners li div h3 { font-size: 140px }
-}
-@media screen and (max-width: 600px) {
-    .Banners li div h3 { font-size: 80px }
+.DotActive {
+  background-color: #717171;
 }

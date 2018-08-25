@@ -1,0 +1,11 @@
+.OtherPost {
+    width: 40%;
+    margin:10px; 
+    box-sizing: border-box;
+    border: 1px solid red;
+    margin: 10px auto;
+}
+
+.OtherPost img{
+    width: 100%;
+}
