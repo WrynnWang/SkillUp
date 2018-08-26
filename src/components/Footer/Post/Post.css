@@ -11,8 +11,10 @@
 
 .Dat {
   width: 25%;
-  box-sizing: border-box;
-  border: solid 1px green;
+  background-color: #cda85c;
+  outline-color: #fff;
+  border-color: #cda85c;
+  cursor: default !important;
   margin: 10px;
 }
 
@@ -20,4 +22,12 @@
   width: 60%;
   box-sizing: border-box;
   border: solid 1px green;
+}
+
+.number {
+  font-size: 21px;
+  padding-bottom: 5px;
+  margin-bottom: 3px;
+  border-bottom: 2px solid #fff;
+  display: block;
 }

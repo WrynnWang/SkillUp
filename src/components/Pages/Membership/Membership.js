@@ -1,8 +1,9 @@
 import React from 'react';
-import PageTemplate from '../PageTemplate/PageTemplate';
+import PageTemplate from '../../PageTemplate/PageTemplate';
 import classes from './Membership.css';
+import Test from '../../../assets/test.jpg'
 const membership = (props) => (
-  <PageTemplate>
+  <PageTemplate background imageSrc={Test} name="Skill Up">
     <div className={classes.Membership}>
       <div className={classes.Title}>
         WELCOME TO OUR CLUB

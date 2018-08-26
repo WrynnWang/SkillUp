@@ -1,23 +1,15 @@
 import React from 'react';
 import classes from './SkillUp.css';
-import PageTemplate from '../../PageTemplate/PageTemplate';
+import PageTemplate from '../../../PageTemplate/PageTemplate';
 import TeamMembers from './TeamMembers/TeamMembers';
 import { Menu, Dropdown,Icon} from 'antd';
 import {Link} from 'react-router-dom';
 import * as dropdownItems from './NavDropDownData';
 const SkillUp = (props) => {
 
-  let ContactUsMenu = (
-    dropdownItems.ABOUTUS.map( item => {
-      return <Menu.Item><Link to={item.link}>{item.value}</Link></Menu.Item>
-    })
-  )
-
-  let ContactUsMenus = <Menu>{ContactUsMenu}</Menu>
   return(
   <PageTemplate>
     <div className={classes.SkillUp}>
-      <Dropdown overlay={ContactUsMenus}><span>About Us</span></Dropdown>
       <p>Skill Up is aiming to provide an interactive and dynamic social community for international students to help them achieve their career development aspirations in Australia and globally.</p>
       <ur>
         Our Objectives Are:
