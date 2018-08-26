@@ -6,21 +6,27 @@ import Partners from '../../components/Pages/HomePage/Partners/Partners';
 import Plans from '../../components/Pages/HomePage/Plans/Plans';
 import Services from '../../components/Pages/HomePage/Services/Services';
 import Footer from '../../components/Footer/Footer';
+import Header from '../../components/Header/Header';
 import classes from './Home.css';
+
+import {Layout} from 'antd';
+
+const {Content} = Layout;
+
 const home = (props) => (
-  <div className={classes.Home}>
-    <div className={classes.Body}>
+  <Layout>
+    <Content>
       <Banners />
       <Services />
       <Partners />
       <Mentors />
       <Plans />
       <Library />
-    </div>
+    </Content>
     <footer>
       <Footer />
     </footer>
-  </div>
+  </Layout>
 )
 
 export default home;

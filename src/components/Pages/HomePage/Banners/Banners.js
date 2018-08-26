@@ -1,32 +1,20 @@
 import React, {Component} from 'react';
 import classes from './Banners.css';
-import Banner from './Banner/Banner';
 import Image1 from '../../../../assets/Banner/image1.jpg';
 import Image2 from '../../../../assets/Banner/image2.jpg';
 import Image3 from '../../../../assets/Banner/image3.jpg';
-class Banners extends Component {
-  state = {
-    image: ['image1','image2','image3'],
-    currentIndex: '0',
 
-  }
-  render() {
+import { Carousel } from 'antd'
+
+const banner = (props) => {
 
     return (
-      <div>
-        <div className={classes.Banners}>
-          <Banner img={Image1}/>
-          <Banner img={Image2}/>
-          <Banner img={Image3}/>
-        </div>
-        <div className={classes.DotContainer}>
-          <span className={classes.Dot}></span>
-          <span className={classes.Dot}></span>
-          <span className={classes.Dot}></span>
-        </div>
-      </div>
+      <Carousel autoplay effect="fade">
+        <div className={classes.Banners}><img src={Image1} /></div>
+        <div className={classes.Banners}><img src={Image2} /></div>
+        <div className={classes.Banners}><img src={Image3} /></div>
+      </Carousel>
     )
-  }
 }
 
-export default Banners;
+export default banner;

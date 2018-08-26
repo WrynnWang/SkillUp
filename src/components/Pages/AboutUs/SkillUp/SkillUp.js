@@ -2,10 +2,11 @@ import React from 'react';
 import classes from './SkillUp.css';
 import PageTemplate from '../../PageTemplate/PageTemplate';
 import TeamMembers from './TeamMembers/TeamMembers';
-import { Menu, Dropdown} from 'antd';
+import { Menu, Dropdown,Icon} from 'antd';
 import {Link} from 'react-router-dom';
 import * as dropdownItems from './NavDropDownData';
 const SkillUp = (props) => {
+
   let ContactUsMenu = (
     dropdownItems.ABOUTUS.map( item => {
       return <Menu.Item><Link to={item.link}>{item.value}</Link></Menu.Item>

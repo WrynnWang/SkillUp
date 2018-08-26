@@ -18,7 +18,6 @@ import Geg from './components/Pages/AboutUs/GEG/GEG';
 import Auth from './containers/Auth/Auth';
 import ProfilePage from './containers/ProfilePage/profilePage';
 import Logout from './containers/Auth/Logout/Logout';
-import './App.css';
 
 import * as actions from './store/actions/index';
 
