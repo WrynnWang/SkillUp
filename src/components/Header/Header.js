@@ -11,7 +11,7 @@ const header = (props) => (
   <Affix offset='0'>
     <Header>
       <div className={classes.logo}><Link to="/"><img src={skillupLogo} alt="skillup" /></Link></div>
-      <NavBar />
+      <NavBar isAuthenticated={props.isAuthenticated}/>
     </Header>
   </Affix>
 
