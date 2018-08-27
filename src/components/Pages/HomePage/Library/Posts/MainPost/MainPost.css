@@ -1,8 +1,6 @@
 .MainPost {
-    width: 30%;
-    margin: 10px; 
-    box-sizing: border-box;
-    border: 1px solid red;
+    width: 40%;
+    margin: auto auto; 
 }
 
 .MainPost img{

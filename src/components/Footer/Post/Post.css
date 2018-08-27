@@ -2,11 +2,10 @@
   display: flex;
   margin: 10px auto;
   padding: 10px;
-  padding: 20px;
   text-align: center;
   width: 80%;
   box-sizing: border-box;
-  border: 1px solid green;
+  border: 1px solid #a2a2a2;
 }
 
 .Dat {
@@ -15,13 +14,11 @@
   outline-color: #fff;
   border-color: #cda85c;
   cursor: default !important;
-  margin: 10px;
+  margin-left: 10px;
 }
 
 .Content {
   width: 60%;
-  box-sizing: border-box;
-  border: solid 1px green;
 }
 
 .number {

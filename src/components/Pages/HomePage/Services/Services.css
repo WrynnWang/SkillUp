@@ -1,8 +1,6 @@
 .Container {
-  margin: 0px;
-  box-sizing: border-box;
-  border: 1px solid red;
   text-align: center;
+  margin-top: -10px;
 }
 
 .Background{
@@ -12,11 +10,10 @@
 .Services {
   margin-left: auto;
   margin-right: auto;
-  padding: 30px;
+  padding-top: 30px;
+  padding-bottom: 0;
   width: 80%;
-  height: 60%;
-  box-sizing: border-box;
-  border: 1px solid red;
+  height: 50%;
 }
 
 .Services h1{

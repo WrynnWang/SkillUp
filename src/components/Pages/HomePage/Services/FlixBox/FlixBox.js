@@ -2,6 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import classes from './FlixBox.css';
 
+import {Button} from 'antd';
+
 const flipbox = (props) => (
   <div className={classes.FlipBoxContainer}>
     <div className={classes.FlipBox}>
@@ -9,8 +11,11 @@ const flipbox = (props) => (
         <img src={props.Image} alt="666" />
       </div>
       <div className={classes.FlipBack}>
-        <h1>{props.content.content}</h1>
-        <Link to={props.content.link}>Learn More</Link>
+        <h1>{props.content.title}</h1>
+        <p>{props.content.content}</p>
+        <Link to={props.content.link}>
+            <Button size="large" className={classes.Button}>Learn More</Button>
+        </Link>
       </div>
 
     </div>

@@ -1,6 +1,4 @@
 .OtherPosts{
-    box-sizing: border-box;
-    border: 1px solid red;
     width: 60%;
     display: flex;
     flex-wrap: wrap;

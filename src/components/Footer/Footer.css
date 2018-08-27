@@ -12,15 +12,11 @@
   padding: 10px;
   text-align: center;
   width:30%;
-  box-sizing: border-box;
-  border: 1px solid green;
   margin: 10px auto;
 }
 
 .Section ul{
   list-style-type:none;
-  box-sizing: border-box;
-  border: solid 1px green;
   line-height: 100%;
   text-align: left;
 }

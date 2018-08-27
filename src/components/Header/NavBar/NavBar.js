@@ -7,15 +7,15 @@ import * as dropdownItems from './NavDropDownData';
 const navBar = (props) => {
 
   let ContactUsMenu = (
-    dropdownItems.ABOUTUS.map( item => {
-      return <Menu.Item><Link to={item.link}>{item.value}</Link></Menu.Item>
+    dropdownItems.ABOUTUS.map( (item, index) => {
+      return <Menu.Item key={index}><Link to={item.link}>{item.value}</Link></Menu.Item>
     })
   )
   let ContactUsMenus = <Menu.ItemGroup>{ContactUsMenu}</Menu.ItemGroup>
 
   let ProgramMenu = (
-    dropdownItems.PROGRAM.map( item => {
-      return <Menu.Item><Link to={item.link}>{item.value}</Link></Menu.Item>
+    dropdownItems.PROGRAM.map( (item, index)=> {
+      return <Menu.Item key={index}><Link to={item.link}>{item.value}</Link></Menu.Item>
     })
   )
   let ProgramMenus = <Menu.ItemGroup>{ProgramMenu}</Menu.ItemGroup>

@@ -1,7 +1,5 @@
 .Container {
-  margin: 20px;
-  box-sizing: border-box;
-  border: 1px solid red;
+  margin: 40px;
   text-align: center;
 }
 
