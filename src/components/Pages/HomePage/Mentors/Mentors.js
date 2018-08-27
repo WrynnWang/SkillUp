@@ -11,7 +11,7 @@ const mentors = (props) => {
   const ImgPerPage = 3;
   const MentorGroups = [];
   for (let i = 0; i< Math.round(MentorsInfo.length/ImgPerPage); i++){
-    console.log("i:", i)
+    //console.log("i:", i)
     let Mentors = [];
     for(let j = 0; j< ImgPerPage; j++){
       let currentIndex = i*ImgPerPage + j;
@@ -27,7 +27,7 @@ const mentors = (props) => {
       )
     }
     MentorGroups.push(
-      <div className={classes.Mentor}>
+      <div className={classes.Mentor} key={i}>
         <Row gutter={24}>
           {Mentors}
         </Row>
