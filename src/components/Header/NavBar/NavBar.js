@@ -2,11 +2,10 @@ import React from 'react';
 import NavItem from './NavItem/NavItem';
 import { Menu} from 'antd';
 import {Link} from 'react-router-dom';
-import * as dropdownItems from './NavDropDownData';
 
 const navBar = (props) => {
 
-  {/*let ContactUsMenu = (
+  /*let ContactUsMenu = (
     dropdownItems.ABOUTUS.map( (item, index) => {
       return <Menu.Item key={index}><Link to={item.link}>{item.value}</Link></Menu.Item>
     })
@@ -19,7 +18,7 @@ const navBar = (props) => {
     })
   )
   let ProgramMenus = <Menu.ItemGroup>{ProgramMenu}</Menu.ItemGroup>
-*/}
+*/
     return(
       <Menu 
         mode="horizontal"

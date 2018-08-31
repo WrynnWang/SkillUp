@@ -1,9 +1,9 @@
 import React from 'react';
 import classes from './Footer.css';
 import {Link} from 'react-router-dom';
-import skillupLogo from '../../assets/Logo/skillupLogo.png';
+import skillupLogo from './skillupLogo.png';
 import Post from './Post/Post';
-import wechatQR from '../../assets/QRcode/wechat-300x300.jpg';
+import wechatQR from './wechat-300x300.jpg';
 import {Layout} from 'antd';
 const footer = (props) => {
 
