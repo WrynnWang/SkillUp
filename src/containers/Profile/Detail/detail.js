@@ -5,6 +5,7 @@ import Scoin from './Scoin/scoin';
 import {connect} from 'react-redux';
 import axios from 'axios';
 
+
 class Detail extends Component{
     state = {
         profile: {
@@ -16,7 +17,8 @@ class Detail extends Component{
             web: '',
             membership: '',
             coin: ''
-        }
+        },
+        isUpdating: false,
     }
     componentDidMount(){
         axios.get('https://skillup-53fa3.firebaseio.com/profile/' + this.props.userId + '.json?auth=' + this.props.token)
@@ -28,10 +30,11 @@ class Detail extends Component{
                                 ...this.state.profile,
                                 [key]: response.data[key]                            
                             };
-                            console.log(updatedProfiles);
                             this.setState({profile: updatedProfiles});
+                            console.log(this.state.profile)
                         }
                     }
+                console.log(this.state.profile)
             }).catch(
                 error => {
                     console.log(error);
@@ -57,14 +60,14 @@ class Detail extends Component{
         return (
             <div className={memstyle.join(' ')}>
                 <InfoCard 
-                    name={this.props.name}
-                    position={this.props.position}
-                    email={this.props.email}
-                    company={this.props.university}
-                    num={this.props.phone_number}
-                    web={this.props.web}
+                    name={this.state.name}
+                    position={this.state.position}
+                    email={this.state.email}
+                    company={this.state.university}
+                    num={this.state.phone_number}
+                    web={this.state.web}
                 />
-                <Scoin coin={this.props.coin}/>
+                <Scoin coin={this.state.coin}/>
             </div>
       )
     }
@@ -79,7 +82,10 @@ const mapStateToProps = state => {
         position: state.profile.position,
         web: state.profile.web,
         membership: state.profile.membership,
-        coin: state.profile.coin
+        coin: state.profile.coin,
+
+        userId: state.auth.userId,
+        token: state.auth.token
     }
 }
  

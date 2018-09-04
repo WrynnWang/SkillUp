@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
 
 import Avatar from './Avatar/avatar';
+import {connect} from 'react-redux';
+import * as actions from '../../../../../store/actions/index';
+
 const FormItem = Form.Item;
 const Option = Select.Option;
 const AutoCompleteOption = AutoComplete.Option;
@@ -16,7 +19,17 @@ class RegistrationForm extends React.Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        console.log('Received values of form: ', values.email, values.name, values.university);
+        this.props.onProfile(
+          values.name,
+          values.email,
+          values.university,
+          values.position,
+          values.number,
+          values.website,
+          this.props.userId,
+          this.props.token
+        )
       }
     });
   }
@@ -24,15 +37,6 @@ class RegistrationForm extends React.Component {
   handleConfirmBlur = (e) => {
     const value = e.target.value;
     this.setState({ confirmDirty: this.state.confirmDirty || !!value });
-  }
-
-
-  validateToNextPassword = (rule, value, callback) => {
-    const form = this.props.form;
-    if (value && this.state.confirmDirty) {
-      form.validateFields(['confirm'], { force: true });
-    }
-    callback();
   }
 
   handleWebsiteChange = (value) => {
@@ -92,7 +96,7 @@ class RegistrationForm extends React.Component {
           >
           {getFieldDecorator('avatar', {
             rules: [{
-              required: true, message: 'Please set your avatar!',
+              required: false, message: 'Please set your avatar!',
             }],
           })(
             <Avatar />
@@ -107,9 +111,10 @@ class RegistrationForm extends React.Component {
               type: 'email', message: 'The input is not valid E-mail!',
             }, {
               required: true, message: 'Please input your E-mail!',
-            }],
+            }], 
+            initialValue: this.props.email,
           })(
-            <Input placeholder={this.props.email} value={this.props.email}/>
+            <Input />
           )}
         </FormItem>
         <FormItem
@@ -125,8 +130,9 @@ class RegistrationForm extends React.Component {
         >
           {getFieldDecorator('name', {
             rules: [{ required: true, message: 'Please input your preferred name!', whitespace: true }],
+            initialValue: this.props.name,
           })(
-            <Input placeholder={this.props.name} value={this.props.name}/>
+            <Input />
           )}
         </FormItem>
 
@@ -134,10 +140,11 @@ class RegistrationForm extends React.Component {
           {...formItemLayout}
           label="Company/Uni"
         >
-          {getFieldDecorator('company', {
+          {getFieldDecorator('university', {
             rules: [{ required: true, message: 'Please input your company/university!', whitespace: true }],
+            initialValue: this.props.company,
           })(
-            <Input placeholder={this.props.company} value={this.props.company}/>
+            <Input />
           )}
         </FormItem>
           
@@ -147,10 +154,9 @@ class RegistrationForm extends React.Component {
         >
           {getFieldDecorator('position', {
             rules: [{ required: true, message: 'Please input your position!', whitespace: true }],
+            initialValue: this.props.position,
           })(
-            <Input 
-              placeholder={this.props.position}
-              value={this.props.position}/>
+            <Input />
           )}
         </FormItem>
 
@@ -160,11 +166,10 @@ class RegistrationForm extends React.Component {
         >
           {getFieldDecorator('phone', {
             rules: [{ required: false}],
+            initialValue: this.props.num,
           })(
             <Input 
-              addonBefore={prefixSelector} style={{ width: '100%' }} 
-              placeholder={this.props.num}
-              value={this.props.num}/>
+              addonBefore={prefixSelector} style={{ width: '100%' }} />
           )}
         </FormItem>
         <FormItem
@@ -173,15 +178,22 @@ class RegistrationForm extends React.Component {
         >
           {getFieldDecorator('website', {
             rules: [{ required: false}],
+            initialValue: this.props.web,
           })(
             <AutoComplete
               dataSource={websiteOptions}
               onChange={this.handleWebsiteChange}
             >
-              <Input placeholder={this.props.web} value={this.props.web}/>
+              <Input />
             </AutoComplete>
           )}
         </FormItem>
+        <Button
+            type="primary"
+            htmlType="submit"
+          >
+            Confirm
+          </Button>
       </Form>
     );
   }
@@ -189,4 +201,18 @@ class RegistrationForm extends React.Component {
 
 const WrappedRegistrationForm = Form.create()(RegistrationForm);
 
-export default WrappedRegistrationForm;
+const mapStateToProps = state => {
+  return {
+      userId: state.auth.userId,
+      token: state.auth.token
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+      onProfile: ( name, email, university, position, number, website,userId, token ) => dispatch( actions.profile( name, email, university, position, number, website, userId, token ) )
+  };
+};
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(WrappedRegistrationForm);

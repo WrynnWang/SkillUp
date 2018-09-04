@@ -48,8 +48,8 @@ export default class experiences extends Component {
                     <h4>{exp.startDate} - {exp.endDate}</h4>
                     <p>{exp.description}</p>
                     <ul>
-                        {exp.responsibility.map(res =>{
-                        return <li>{res}</li>
+                        {exp.responsibility.map((res, index) =>{
+                        return <li key={index}>{res}</li>
                     })}
                     </ul>
                 </Card>

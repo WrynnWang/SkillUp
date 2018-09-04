@@ -1,12 +1,12 @@
 .detail {
-    position: absolute;
+    margin-top: 80px;
     background-color: #ffffff;
     padding: 20px;
     text-align: center;
     width: 216px;
     box-shadow: 0 0 0 1px rgba(0,0,0,.15);
     border-radius: 2px;
-    float: left;
+    
 }
 
 .detail h5{

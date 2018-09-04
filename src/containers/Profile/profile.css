@@ -7,6 +7,8 @@
 }
 
 .contentTabs{
+    position: relative;
+    margin-top:30px;
     margin-left: 250px;
     width: 100%;
     text-align: left;

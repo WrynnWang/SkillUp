@@ -8,14 +8,15 @@ export const profileStart = () => {
     };
 };
 
-export const profileSuccess = (name, email, phone_number, university, major) => {
+export const profileSuccess = (name, email, university, position, number, website) => {
     return {
         type: actionTypes.PROFILE_SUCCESS,
         name: name,
         email: email,
-        phone_number: phone_number,
+        number: number,
+        position: position,
         university: university,
-        major: major
+        website: website,
     };
 };
 
@@ -26,24 +27,26 @@ export const profileFail = (error) => {
     };
 };
 
-export const profile = (name, email, phone_number, university, major, userId, token) => {
+export const profile = (name, email, university, position, number, website, userId, token) => {
     return dispatch => {
         dispatch(profileStart());
         const profileData = {
             name: name,
             email: email,
-            phone_number: phone_number,
+            number: number,
+            position: position,
             university: university,
-            major: major,
+            website: website,
             returnSecureToken: true
         };
 
+        console.log(profileData);
         const url = 'https://skillup-53fa3.firebaseio.com/profile/' + userId + '.json?auth=' + token;
 
         axios.put(url, profileData)
             .then(response => {
-                console.log(response);
-                dispatch(profileSuccess(name, email, phone_number, university, major));
+                console.log(response,"1111111");
+                dispatch(profileSuccess(name, email, university, position, number, website));
             })
             .catch(err => {
                 console.log(err);

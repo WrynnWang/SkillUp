@@ -16,6 +16,7 @@ import Acbc from './static/AboutUs/ACBC/ACBC';
 import Geg from './static/AboutUs/GEG/GEG';
 import Auth from './containers/Auth/Auth';
 import ProfilePage from './containers/ProfilePage/profilePage';
+import Profile1 from './containers/Profile/profile';
 import Logout from './containers/Auth/Logout/Logout';
 import profile from './containers/Profile/profile';
 
@@ -46,7 +47,8 @@ class App extends Component {
             <Route exact path="/acbc" component={Acbc} />
             <Route exact path="/profile1" component={profile} />
             <Route exact path="/login" component={Auth} />
-            <Route exact path="/profile" component={ProfilePage} />
+            {/*<Route exact path="/profile" component={ProfilePage} />*/}
+            <Route exact path="/profile" component={Profile1} />
             <Route exact path="/logout" component={Logout}/>
             <Redirect to="/"/>
         </Switch>

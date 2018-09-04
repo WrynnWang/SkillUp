@@ -23,9 +23,10 @@ const profileSuccess = (state, action) => {
     return updateObject( state, {
         name: action.name,
         email: action.email,
-        phone_number: action.phone_number,
+        number: action.number,
+        position: action.position,
         university: action.university,
-        major: action.major,
+        website: action.website,
         error: null,
         loading: false
     } );
