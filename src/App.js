@@ -18,6 +18,7 @@ import Geg from './static/AboutUs/GEG/GEG';
 import Auth from './containers/Auth/Auth';
 import ProfilePage from './containers/ProfilePage/profilePage';
 import Logout from './containers/Auth/Logout/Logout';
+import profile from './containers/Profile/profile';
 
 import * as actions from './store/actions/index';
 
@@ -43,7 +44,8 @@ class App extends Component {
             <Route exact path="/vsg" component={Vsg} />
             <Route exact path="/geg" component={Geg} />
             <Route exact path="/acbc" component={Acbc} />
-            <Route exact path="/login" component={Auth}/>
+            <Route exact path="/profile1" component={profile} />
+            <Route exact path="/login" component={Auth} />
             <Redirect to="/"/>
         </Switch>
     );

@@ -1,0 +1,35 @@
+.detail {
+    position: absolute;
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    width: 216px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15);
+    border-radius: 2px;
+    float: left;
+}
+
+.detail h5{
+    font-size: 16px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: 500;
+}
+
+.detail p{
+    color: rgba(0, 0, 0, 0.45);
+}
+
+.gold {
+    box-shadow: 0 0 0 3px #edc44c;
+}
+
+.silver{
+    box-shadow: 0 0 0 3px #b5b6b9;
+}
+
+.bronze{
+    box-shadow: 0 0 0 3px #ab5933;
+}

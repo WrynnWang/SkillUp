@@ -1,0 +1,19 @@
+.educations {
+    color: rgba(0,0,0,.9);
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;
+}
+
+.educations h3{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.educations h4{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.educations p{
+    line-height: 20px;
+    color: rgba(0,0,0,.9);
+}
