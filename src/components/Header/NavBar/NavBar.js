@@ -1,9 +1,10 @@
-import React from 'react';
+import React,{Component} from 'react';
 import NavItem from './NavItem/NavItem';
 import { Menu} from 'antd';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 
-const navBar = (props) => {
+class NavBar extends Component {
 
   /*let ContactUsMenu = (
     dropdownItems.ABOUTUS.map( (item, index) => {
@@ -19,12 +20,17 @@ const navBar = (props) => {
   )
   let ProgramMenus = <Menu.ItemGroup>{ProgramMenu}</Menu.ItemGroup>
 */
+  componentDidMount(){
+    console.log(this.props.isAuthenticated);
+  }
+
+  render (){
     return(
       <Menu 
         mode="horizontal"
         theme='dark' 
         defaultSelectedKeys={['1']}
-        style={{ lineHeight: '64px'}}>
+        style={{ lineHeight: '64px', position: 'absolute', right:'20px'}}>
           <Menu.Item key="1"><NavItem link="/">Home</NavItem></Menu.Item>
           <Menu.SubMenu title="Program" >
             <Menu.Item key="3"><Link to="/internship">Internship</Link></Menu.Item>
@@ -41,11 +47,18 @@ const navBar = (props) => {
             <Menu.Item key="13"><Link to="/acbc">Australia China Business Council</Link></Menu.Item>
           </Menu.SubMenu>
           <Menu.Item key="14"><NavItem link="/contact-us">Contact Us</NavItem></Menu.Item>
-          <Menu.Item key="15">{props.isAuthenticated ? <NavItem link="/profile">Profile</NavItem>: null}</Menu.Item>
-          <Menu.Item key="16">{!props.isAuthenticated ? <NavItem link="/login">Login</NavItem>: <NavItem link="/logout">Log Out</NavItem> }</Menu.Item>
+          <Menu.Item key="15">{this.props.isAuthenticated ? <NavItem link="/profile">Profile</NavItem>: null}</Menu.Item>
+          <Menu.Item key="16">{!this.props.isAuthenticated ? <NavItem link="/login">Login</NavItem>: <NavItem link="/logout">Log Out</NavItem> }</Menu.Item>
       </Menu>
           
     )
+  }
 }
 
-export default navBar;
+const mapStateToProps = state => {
+    return {
+      isAuthenticated: state.auth.token !== null
+    };
+}
+
+export default connect(mapStateToProps)(NavBar);

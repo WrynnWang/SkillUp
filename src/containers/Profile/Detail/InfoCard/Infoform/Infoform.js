@@ -6,30 +6,6 @@ const FormItem = Form.Item;
 const Option = Select.Option;
 const AutoCompleteOption = AutoComplete.Option;
 
-const residences = [{
-  value: 'zhejiang',
-  label: 'Zhejiang',
-  children: [{
-    value: 'hangzhou',
-    label: 'Hangzhou',
-    children: [{
-      value: 'xihu',
-      label: 'West Lake',
-    }],
-  }],
-}, {
-  value: 'jiangsu',
-  label: 'Jiangsu',
-  children: [{
-    value: 'nanjing',
-    label: 'Nanjing',
-    children: [{
-      value: 'zhonghuamen',
-      label: 'Zhong Hua Men',
-    }],
-  }],
-}];
-
 class RegistrationForm extends React.Component {
   state = {
     confirmDirty: false,
@@ -50,14 +26,6 @@ class RegistrationForm extends React.Component {
     this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   }
 
-  compareToFirstPassword = (rule, value, callback) => {
-    const form = this.props.form;
-    if (value && value !== form.getFieldValue('password')) {
-      callback('Two passwords that you enter is inconsistent!');
-    } else {
-      callback();
-    }
-  }
 
   validateToNextPassword = (rule, value, callback) => {
     const form = this.props.form;
@@ -122,7 +90,7 @@ class RegistrationForm extends React.Component {
           {...formItemLayout}
           label="Avatar"
           >
-          {getFieldDecorator('email', {
+          {getFieldDecorator('avatar', {
             rules: [{
               required: true, message: 'Please set your avatar!',
             }],
@@ -141,7 +109,7 @@ class RegistrationForm extends React.Component {
               required: true, message: 'Please input your E-mail!',
             }],
           })(
-            <Input />
+            <Input placeholder={this.props.email} value={this.props.email}/>
           )}
         </FormItem>
         <FormItem
@@ -155,10 +123,10 @@ class RegistrationForm extends React.Component {
             </span>
           )}
         >
-          {getFieldDecorator('nickname', {
+          {getFieldDecorator('name', {
             rules: [{ required: true, message: 'Please input your preferred name!', whitespace: true }],
           })(
-            <Input />
+            <Input placeholder={this.props.name} value={this.props.name}/>
           )}
         </FormItem>
 
@@ -169,7 +137,7 @@ class RegistrationForm extends React.Component {
           {getFieldDecorator('company', {
             rules: [{ required: true, message: 'Please input your company/university!', whitespace: true }],
           })(
-            <Input />
+            <Input placeholder={this.props.company} value={this.props.company}/>
           )}
         </FormItem>
           
@@ -180,7 +148,9 @@ class RegistrationForm extends React.Component {
           {getFieldDecorator('position', {
             rules: [{ required: true, message: 'Please input your position!', whitespace: true }],
           })(
-            <Input />
+            <Input 
+              placeholder={this.props.position}
+              value={this.props.position}/>
           )}
         </FormItem>
 
@@ -191,7 +161,10 @@ class RegistrationForm extends React.Component {
           {getFieldDecorator('phone', {
             rules: [{ required: false}],
           })(
-            <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
+            <Input 
+              addonBefore={prefixSelector} style={{ width: '100%' }} 
+              placeholder={this.props.num}
+              value={this.props.num}/>
           )}
         </FormItem>
         <FormItem
@@ -204,9 +177,8 @@ class RegistrationForm extends React.Component {
             <AutoComplete
               dataSource={websiteOptions}
               onChange={this.handleWebsiteChange}
-              placeholder="website"
             >
-              <Input />
+              <Input placeholder={this.props.web} value={this.props.web}/>
             </AutoComplete>
           )}
         </FormItem>

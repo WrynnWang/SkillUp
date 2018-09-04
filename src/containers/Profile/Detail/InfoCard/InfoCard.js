@@ -48,7 +48,13 @@ export default class InfoCard extends Component {
                     onCancel={this.cancelHandler}
                     okText="Confirm"
                     cancelText="Cancel">
-                    <InfoForm />
+                    <InfoForm
+                        name={this.props.name}
+                        position={this.props.position}
+                        email={this.props.email}
+                        company={this.props.company}
+                        num={this.props.num}
+                        web={this.props.web}/>
                 </Modal>
       </div>
     )

@@ -2,10 +2,14 @@ import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../utility';
 
 const initialState = {
-    name:null,
-    phone_number: null,
-    email: null,
-    university:null,
+    name:'Zikai Zhao',
+    phone_number: '424260701',
+    email: 'lionelcdqz@gmail.com',
+    university:'Tuftec',
+    position: 'Casual Software Developer Tuftec Solutions',
+    web: 'www.google.com',
+    membership: 'gold',
+    coin: '55',
     major: null,
     error: null,
     loading: false

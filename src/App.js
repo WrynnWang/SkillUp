@@ -3,7 +3,6 @@ import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import Home from './containers/Home/Home';
-import Header from './components/Header/Header';
 import Membership from './static/Membership/Membership';
 import Library from './static/Library/Library';
 import ContactUs from './static/ContactUs/ContactUs';
@@ -20,6 +19,7 @@ import ProfilePage from './containers/ProfilePage/profilePage';
 import Logout from './containers/Auth/Logout/Logout';
 import profile from './containers/Profile/profile';
 
+import Routes from './Routes';
 import * as actions from './store/actions/index';
 
 class App extends Component {
@@ -46,48 +46,19 @@ class App extends Component {
             <Route exact path="/acbc" component={Acbc} />
             <Route exact path="/profile1" component={profile} />
             <Route exact path="/login" component={Auth} />
+            <Route exact path="/profile" component={ProfilePage} />
+            <Route exact path="/logout" component={Logout}/>
             <Redirect to="/"/>
         </Switch>
     );
 
-    if(this.props.isAuthenticated){
-        routes = (
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/membership" component={Membership} />
-              <Route exact path="/library" component={Library} />
-              <Route exact path="/contact-us" component={ContactUs} />
-              <Route exact path="/internship" component={Internship} />
-              <Route exact path="/mentoring" component={Mentoring} />
-              <Route exact path="/training" component={Training} />
-              <Route exact path="/networking" component={Networking} />
-              <Route exact path="/skillup" component={SkillUp} />
-              <Route exact path="/vsg" component={Vsg} />
-              <Route exact path="/geg" component={Geg} />
-              <Route exact path="/acbc" component={Acbc} />
-              <Route exact path="/profile" component={ProfilePage} />
-              <Route exact path="/logout" component={Logout}/>
-              <Redirect to="/"/>
-            </Switch>
-        );
-    }
-
     return (
       <BrowserRouter>
-        <div>
-          <Header isAuthenticated={this.props.isAuthenticated}/>
-            {routes}
-        </div>
+        {routes}
       </BrowserRouter>
     );
   }
 }
-
-const mapStateToProps = state => {
-    return {
-        isAuthenticated: state.auth.token !== null
-    };
-};
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -95,4 +66,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default connect(null,mapDispatchToProps)(App);

@@ -34,8 +34,6 @@ const mentors = (props) => {
     )
   }
 
-  console.log('break');
-
   return(
     <div className={classes.Container}>
       <h5>Our Mentors</h5>

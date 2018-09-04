@@ -8,12 +8,10 @@ import {Link} from 'react-router-dom';
 const { Header } = Layout;
 
 const header = (props) => (
-  <Affix offset='0'>
-    <Header>
+    <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
       <div className={classes.logo}><Link to="/"><img src={skillupLogo} alt="skillup" /></Link></div>
-      <NavBar isAuthenticated={props.isAuthenticated}/>
+      <NavBar />
     </Header>
-  </Affix>
 
 )
 

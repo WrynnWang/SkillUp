@@ -18,6 +18,7 @@ const pageTemplate = (props) => {
 
     return(
         <Layout>
+            <Header />
             <Content>
                 {background}
                 {props.children}

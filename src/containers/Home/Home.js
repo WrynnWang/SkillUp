@@ -12,7 +12,8 @@ import Header from '../../components/Header/Header';
 const {Content} = Layout;
 
 const home = (props) => (
-  <Layout>
+  <Layout className="layout">
+    <Header />
     <Content>
       <Banners />
       <Services />
