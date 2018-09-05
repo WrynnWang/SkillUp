@@ -8,11 +8,18 @@ import Detail from './Detail/detail';
 import {Affix, Tabs,Icon, BackTop, Layout} from 'antd';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
+import {connect} from 'react-redux';
+import {Route, withRouter} from 'react-router-dom';
 
 const {Content} = Layout;
 
 class Profile extends Component{
 
+    componentWillMount(){
+        if(!this.props.isAuthenticated){
+            this.props.history.replace('/login');
+        }
+    }
     render(){
 
         const TabPane = Tabs.TabPane
@@ -47,4 +54,10 @@ class Profile extends Component{
     }
 }
 
-export default Profile;
+const mapStateToProps = state => {
+    return {
+        isAuthenticated: state.auth.token !== null
+    };
+};
+
+export default connect(mapStateToProps)(withRouter(Profile));

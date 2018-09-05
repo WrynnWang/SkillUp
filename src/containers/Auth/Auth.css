@@ -1,22 +1,21 @@
-.Auth{
-    width: 60%;
-    margin: 20px auto;
+.container {
     margin-top: 80px;
+    height: 100%;
+    width: 100%;
     text-align: center;
-    box-shadow: 0 2px 3px #ccc;
-    border: 1px solid #eee;
+}
+.login_form {
+    max-width: 300px;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
     box-sizing: border-box;
-}
+  }
 
-.Input{
-    display: block;
-    width: 20%;
-    align-self: center;
-    margin: 10px auto;
-}
+  .login_form_forgot {
+    float: right;
+  }
 
-@media (min-width: 600px) {
-    .ContactData{
-        width: 500px;
-    }
-}
+  .login_form_button {
+    width: 100%;
+  }

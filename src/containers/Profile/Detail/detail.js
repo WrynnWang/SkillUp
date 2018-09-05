@@ -1,9 +1,10 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import style from './detail.css';
 import InfoCard from './InfoCard/InfoCard';
 import Scoin from './Scoin/scoin';
 import {connect} from 'react-redux';
 import axios from 'axios';
+import {Spin} from 'antd';
 
 
 class Detail extends Component{
@@ -21,6 +22,7 @@ class Detail extends Component{
         isUpdating: false,
     }
     componentDidMount(){
+        this.setState({isUpdating: true})
         axios.get('https://skillup-53fa3.firebaseio.com/profile/' + this.props.userId + '.json?auth=' + this.props.token)
             .then(
                 response => {
@@ -30,8 +32,8 @@ class Detail extends Component{
                                 ...this.state.profile,
                                 [key]: response.data[key]                            
                             };
-                            this.setState({profile: updatedProfiles});
-                            console.log(this.state.profile)
+                            this.setState({profile: updatedProfiles, isUpdating: false});
+                            
                         }
                     }
                 console.log(this.state.profile)
@@ -56,20 +58,30 @@ class Detail extends Component{
                 break;
         }
 
+        let detail = null;
+        if(!this.state.isUpdating){
+            detail = 
+            <Fragment>
+                <InfoCard 
+                    name={this.state.profile.name}
+                    position={this.state.profile.position}
+                    email={this.state.profile.email}
+                    company={this.state.profile.university}
+                    num={this.state.profile.phone_number}
+                    web={this.state.profile.web}/>
+                <Scoin coin={this.state.profile.coin}/> 
+            </Fragment>
+        }
+
+        if(this.state.isUpdating) {
+            detail = <Spin />
+        }
 
         return (
             <div className={memstyle.join(' ')}>
-                <InfoCard 
-                    name={this.state.name}
-                    position={this.state.position}
-                    email={this.state.email}
-                    company={this.state.university}
-                    num={this.state.phone_number}
-                    web={this.state.web}
-                />
-                <Scoin coin={this.state.coin}/>
+                {detail}
             </div>
-      )
+        );
     }
 }
 
