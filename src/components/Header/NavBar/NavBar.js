@@ -20,9 +20,9 @@ class NavBar extends Component {
   )
   let ProgramMenus = <Menu.ItemGroup>{ProgramMenu}</Menu.ItemGroup>
 */
-  componentDidMount(){
-    console.log(this.props.isAuthenticated);
-  }
+  //componentDidMount(){
+    //console.log(this.props.isAuthenticated);
+  //}
 
   render (){
     return(

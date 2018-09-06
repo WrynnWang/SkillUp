@@ -44,17 +44,15 @@ export default class InfoCard extends Component {
         <Modal
                     title="Edit Personal Information"
                     visible={this.state.modal}
-                    onOk={this.confirmHandler}
-                    onCancel={this.cancelHandler}
-                    okText="Confirm"
-                    cancelText="Cancel">
+                    footer={null}>
                     <InfoForm
                         name={this.props.name}
                         position={this.props.position}
                         email={this.props.email}
                         company={this.props.company}
                         num={this.props.num}
-                        web={this.props.web}/>
+                        web={this.props.web}
+                        confirm={this.confirmHandler}/>
                 </Modal>
       </div>
     )

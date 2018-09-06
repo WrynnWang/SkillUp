@@ -27,7 +27,14 @@ export const profileFail = (error) => {
     };
 };
 
-export const profile = (name, email, university, position, number, website, userId, token) => {
+export const profileFirstLoad = (name, email, university, position, number, website) => {
+    return dispatch => {
+        dispatch(profileStart());
+        dispatch(profileSuccess(name, email, university, position, number, website));
+    }
+};
+
+export const profile = (name, email, university, position, number, website, localId, token) => {
     return dispatch => {
         dispatch(profileStart());
         const profileData = {
@@ -41,7 +48,7 @@ export const profile = (name, email, university, position, number, website, user
         };
 
         console.log(profileData);
-        const url = 'https://skillup-53fa3.firebaseio.com/profile/' + userId + '.json?auth=' + token;
+        const url = 'https://skillup-53fa3.firebaseio.com/profile/' + localId + '.json?auth=' + token;
 
         axios.put(url, profileData)
             .then(response => {

@@ -20,6 +20,7 @@ class RegistrationForm extends React.Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values.email, values.name, values.university);
+        this.props.confirm();
         this.props.onProfile(
           values.name,
           values.email,
@@ -27,7 +28,7 @@ class RegistrationForm extends React.Component {
           values.position,
           values.number,
           values.website,
-          this.props.userId,
+          this.props.localId,
           this.props.token
         )
       }
@@ -203,14 +204,14 @@ const WrappedRegistrationForm = Form.create()(RegistrationForm);
 
 const mapStateToProps = state => {
   return {
-      userId: state.auth.userId,
+      localId: state.auth.localId,
       token: state.auth.token
   }
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-      onProfile: ( name, email, university, position, number, website,userId, token ) => dispatch( actions.profile( name, email, university, position, number, website, userId, token ) )
+      onProfile: ( name, email, university, position, number, website,localId, token ) => dispatch( actions.profile( name, email, university, position, number, website, localId, token ) )
   };
 };
 

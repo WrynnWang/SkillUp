@@ -10,6 +10,7 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import {connect} from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
+import My from './My/my';
 
 const {Content} = Layout;
 
@@ -42,7 +43,7 @@ class Profile extends Component{
                                     <ProfExp /> 
                                 </TabPane>
                                 <TabPane tab={<span><Icon type="user" />My</span>} key="3">
-                                    My Content
+                                    <My />
                                 </TabPane>
                             </Tabs>
                         </div>

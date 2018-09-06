@@ -5,6 +5,7 @@ import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import style from './Auth.css';
 import * as actions from '../../store/actions/index';
 import {Layout} from 'antd';
+import {withRouter} from 'react-router-dom';
 import Header from '../../components/Header/Header';
 
 const FormItem = Form.Item;
@@ -33,6 +34,11 @@ class NormalLoginForm extends Component {
   }
   render() {
     const { getFieldDecorator } = this.props.form;
+    
+    if (this.props.token !== null){
+      this.props.history.replace('/');
+    }
+
     return (
         <Layout>
         <Header />
@@ -90,4 +96,4 @@ const mapDispatchToProps = dispatch => {
 
 const WrappedNormalLoginForm = Form.create()(NormalLoginForm);
 
-export default connect( mapStateToProps, mapDispatchToProps )( WrappedNormalLoginForm );
+export default connect( mapStateToProps, mapDispatchToProps )( withRouter(WrappedNormalLoginForm) );

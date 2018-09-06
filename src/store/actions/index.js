@@ -5,5 +5,6 @@ export {
 } from './auth.js';
 
 export {
+    profileFirstLoad,
     profile
 } from './profile.js';

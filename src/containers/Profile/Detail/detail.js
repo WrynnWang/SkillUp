@@ -5,6 +5,7 @@ import Scoin from './Scoin/scoin';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import {Spin} from 'antd';
+import * as actions from '../../../store/actions/index';
 
 
 class Detail extends Component{
@@ -23,20 +24,26 @@ class Detail extends Component{
     }
     componentDidMount(){
         this.setState({isUpdating: true})
-        axios.get('https://skillup-53fa3.firebaseio.com/profile/' + this.props.userId + '.json?auth=' + this.props.token)
+        axios.get('https://skillup-53fa3.firebaseio.com/profile/' + this.props.localId + '.json?auth=' + this.props.token)
             .then(
                 response => {
+                    let updatedProfiles = {};
                     for(let key in response.data){
                         if(key !== "returnSecureToken"){
-                            const updatedProfiles = {
-                                ...this.state.profile,
-                                [key]: response.data[key]                            
-                            };
-                            this.setState({profile: updatedProfiles, isUpdating: false});
-                            
+                            updatedProfiles[key] = response.data[key]                                                  
                         }
                     }
-                console.log(this.state.profile)
+                    console.log('UpdatedProfile:',updatedProfiles)
+                this.props.onLoadProfile(
+                    updatedProfiles.name,
+                    updatedProfiles.email,
+                    updatedProfiles.university,
+                    updatedProfiles.position,
+                    updatedProfiles.number,
+                    updatedProfiles.web,
+                )
+
+                this.setState({isUpdating: false})
             }).catch(
                 error => {
                     console.log(error);
@@ -63,13 +70,13 @@ class Detail extends Component{
             detail = 
             <Fragment>
                 <InfoCard 
-                    name={this.state.profile.name}
-                    position={this.state.profile.position}
-                    email={this.state.profile.email}
-                    company={this.state.profile.university}
-                    num={this.state.profile.phone_number}
-                    web={this.state.profile.web}/>
-                <Scoin coin={this.state.profile.coin}/> 
+                    name={this.props.name}
+                    position={this.props.position}
+                    email={this.props.email}
+                    company={this.props.university}
+                    num={this.props.phone_number}
+                    web={this.props.web}/>
+                <Scoin coin={this.props.coin}/> 
             </Fragment>
         }
 
@@ -96,9 +103,15 @@ const mapStateToProps = state => {
         membership: state.profile.membership,
         coin: state.profile.coin,
 
-        userId: state.auth.userId,
+        localId: state.auth.localId,
         token: state.auth.token
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onLoadProfile: (name,email,university,phone_number,position,web) => dispatch(actions.profileFirstLoad(name,email,university,phone_number,position,web))
+    }
+}
  
-export default connect(mapStateToProps)(Detail);
+export default connect(mapStateToProps, mapDispatchToProps)(Detail);
