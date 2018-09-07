@@ -41,7 +41,7 @@ class Detail extends Component{
                     updatedProfiles.position,
                     updatedProfiles.number,
                     updatedProfiles.web,
-                )
+                );
 
                 this.setState({isUpdating: false})
             }).catch(
@@ -106,12 +106,12 @@ const mapStateToProps = state => {
         localId: state.auth.localId,
         token: state.auth.token
     }
-}
+};
 
 const mapDispatchToProps = dispatch => {
     return {
         onLoadProfile: (name,email,university,phone_number,position,web) => dispatch(actions.profileFirstLoad(name,email,university,phone_number,position,web))
     }
-}
+};
  
 export default connect(mapStateToProps, mapDispatchToProps)(Detail);

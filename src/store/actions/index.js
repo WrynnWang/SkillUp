@@ -8,3 +8,8 @@ export {
     profileFirstLoad,
     profile
 } from './profile.js';
+
+export {
+    avatar,
+    avatarFirstLoad
+} from './avatar.js'

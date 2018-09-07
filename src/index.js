@@ -9,12 +9,14 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import authReducer from './store/reducer/auth';
 import profileReducer from './store/reducer/profile';
+import avatarReducer from './store/reducer/avatar';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
     auth: authReducer,
-    profile: profileReducer
+    profile: profileReducer,
+    avatar: avatarReducer
 });
 
 const store = createStore(rootReducer, composeEnhancers(
